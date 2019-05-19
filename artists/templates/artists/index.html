@@ -1,0 +1,22 @@
+{% extends "artists/base.html" %}
+{% block content %}
+<div class="container mt-5 pt-3 col-12">
+    <div>
+        <h2 class="border-bottom border-dark">Profile</h2>
+        {% for artist in artist_list.all %}
+        <div class="w-100 mb-4">
+            <div class="border border-dark rounded">
+                <div class="w-100">
+                    <h4 class="p-2 bg-dark"><a href="#" class="text-white">{{ artist.artist_Name }}</a></h4>
+                </div>
+                <div class="pl-2 pt-2">
+                    <h6 class="border-bottom border-dark w-25"><strong>Updates:</strong></h6>
+                    <p>No Updates at this time.</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+</div>
+{% endblock content %}

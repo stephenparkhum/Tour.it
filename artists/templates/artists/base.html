@@ -1,0 +1,85 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    
+
+    {% if Artists.artist_Name %}
+    <title>{{ artist_Name }}</title>
+
+    {% else %}
+    <title>Tour Booking App</title>
+
+    {% endif %}
+</head>
+<body class="bg-white">
+    <header class="site-header">
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-white border-bottom border-success">
+            <div class="container text-dark">
+                <a class="navbar-brand mr-4 text-dark" href="{% url 'index' %}">the<span class="text-success">.road</span></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle"
+                    aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse text-dark" id="navbarToggle">
+                    <div class="navbar-nav mr-auto">
+                        <a class="nav-item nav-link text-dark active" href="{% url 'index' %}">Home</a>
+                        <a class="nav-item nav-link text-dark" href="{% url 'artist-list' %}">Artists</a>
+                        <!-- <a class="nav-item nav-link" href="{% url 'artist-page' %}">Artist Page</a> -->
+                        <a class="nav-item nav-link text-dark" href="{% url 'shows-page' %}">Shows</a>
+                        <a class="nav-item nav-link text-dark" href="{% url 'tours-page' %}">Tours</a>
+                    </div>
+                    <div class="navbar-nav">
+                        {% if user.is_authenticated %}
+                        <a class="nav-item nav-link text-dark" href="#">Profile</a>
+                        <a class="nav-item nav-link text-dark" href="#">Settings</a>
+                        <a class="nav-item nav-link text-dark" href="#">Logout</a>
+                        {% else %}
+                        <a class="nav-item nav-link text-dark" href="#">Login</a>
+                        <a class="nav-item nav-link text-dark" href="#">Register</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main role="main" class="container">
+        <div class="row">
+            <div class="col-md-8">
+                {% if messages %}
+                {% for message in messages %}
+                <div class="alert alert-{{message.tags}}">
+                    {{ message }}
+                </div>
+                {% endfor %}
+                {% endif %}
+            {% block content %}{% endblock %}
+            </div>
+            
+            <div class="col-md-4 mt-4 border-dark">
+                <div class="content-section">
+                    <h3>Sidebar</h3>
+                    <p class='text-muted'>Put other shit here.
+                        <ul class="list-group">
+                            <li class="list-group-item bg-dark"><a href="{% url 'add-artist' %}" class="text-white">+ Add Artist</li></a>
+                            <li class="list-group-item bg-dark"><a href="#" class="text-white">+ Add Show</li></a>
+                            <li class="list-group-item bg-dark"><a href="#" class="text-white">+ Add Tour</li></a>
+                            
+                        </ul>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>

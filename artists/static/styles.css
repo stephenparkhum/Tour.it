@@ -1,0 +1,12 @@
+body {
+    background-color: black !important;
+    color: black;
+}
+
+header {
+    border-bottom: 1px solid white;
+}
+
+.content-section {
+    float: right;
+}

@@ -1,0 +1,43 @@
+{% extends "artists/base.html" %}
+{% block content %}
+<div class="container mt-5 pt-3 col-12">
+    <div>
+        <h2>Shows</h2>
+        {% for artist in artist_list.all %}
+        <div class="w-100 mb-4">
+            <div class="border border-dark rounded">
+                <div class="w-100">
+                    <h4 class="p-3 bg-dark mb-0"><a href="#" class="text-white">{{ artist.artist_Name }}</a></h4>
+                </div>
+                <div class="mt-0 pt-0 pl-0 border-top border-white">
+                    <table class="w-100">
+                        <thead class="bg-dark text-white text-left">
+                            <tr>
+                                <th scope="col" class="pl-2">Date</th>
+                                <th scope="col" class="pl-2">Venue</th>
+                                <th scope="col" class="pl-2 pr-4">Location</th>
+                                <th scope="col" class="pl-2 pr-4">Tour</th>
+                            </tr>
+                        </thead>
+                        <tbody class="border-bottom border-dark">
+                            {% for artist in artist_list.all %}
+                            <tr class="border-bottom border-dark">
+                                <th scope="row" class="border-right border-dark p-3 ">1/1/2019</th>
+                                <td class="p-3 border-right border-dark">Venue #1</td>
+                                <td class="p-3 text-right border-right border-dark">Portland, OR</td>
+                                <td class="p-3 text-right border-right border-dark">Tour Name</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+</div>
+
+
+{% endblock content %}

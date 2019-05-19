@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Artist Page</title>
+</head>
+<body>
+    {% if artist_list %}
+    <ul>
+        {% for artist in artist_list %}
+        <li>{{ artist.artist_name }}</li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p>No artists are remaining.</p>
+    {% endif %}
+</body>
+</html>
