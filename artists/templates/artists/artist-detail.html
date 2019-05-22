@@ -1,4 +1,6 @@
 {% extends "artists/base.html" %}
+{% load crispy_forms_tags %}
+
 {% block content %}
 <article class="media content-section">
     <img class="rounded-circle article-img" src="{{ object.author.profile.image.url }}" alt="Author Image">

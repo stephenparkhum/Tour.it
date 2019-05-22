@@ -1,12 +1,12 @@
 {% extends "artists/base.html" %}
 {% load crispy_forms_tags %}
 {% block content %}
-<form id="add-artist" method="post">
-    <legend>
-        <h2>Add Artist</h2>
-    </legend>
+<form action="/your-name/" method="post">
+    <h2>Add Tour</h2>
     {% csrf_token %}
     {{ form|crispy }}
-    <input class="btn btn-dark" type="submit" value="Submit">
 </form>
+
+
+
 {% endblock content %}

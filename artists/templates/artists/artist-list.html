@@ -1,31 +1,38 @@
 {% extends "artists/base.html" %}
 {% block content %}
-<div class="container mt-5 pt-3 w-100">
-    <h2>Artists:</h2>
-    <div>
-        <table class="border border-dark w-100">
-            <caption>Artists in database currently.</caption>
-            <thead class="bg-dark text-light text-left">
-                <tr>
-                    <th scope="col" class="pl-1">Name</th>
-                    <th scope="col" class="pl-1">Genre</th>
-                    <th scope="col" class="pl-1 pr-4">Shows</th>
-                    <th scope="col" class="pl-1 pr-4">Tours</th>
-                </tr>
-            </thead>
-            <tbody class="border-bottom border-dark">
-                {% for artist in artist_list.all %}
-                <tr class="border-bottom border-dark">
-                    <th scope="row" class="border-right border-dark pr-3 pl-1">{{ artist.artist_Name }}</th>
-                    <td class="pl-1 border-right border-dark">{{ artist.artist_Genre }}</td>
-                    <td class="text-right border-right border-dark">{{ artist.artist_Show_Count }}</td>
-                    <td class="text-right">0</td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-    </div>
+<h2>Artists:</h2>
+<div>
+    {% if artist_list %}
+    <table class="border border-dark w-100">
+        <caption>Your current artists.</caption>
+        <thead class="bg-dark text-light text-left">
+            <tr>
+                <th scope="col" class="pl-1">Name</th>
+                <th scope="col" class="pl-1">Genre</th>
+                <th scope="col" class="pl-1 pr-4">Shows</th>
+                <th scope="col" class="pl-1 pr-4">Tours</th>
+            </tr>
+        </thead>
+        <tbody class="border-bottom border-dark">
+            {% for artist in artist_list %}
+            <tr class="border-bottom border-dark">
+                <th scope="row" class="border-right border-dark pr-3 pl-1">{{ artist.artist_Name }}<a href="#"
+                        class="badge badge-dark ml-2">Edit</a>
+                </th>
+                <td class="pl-1 border-right border-dark">{{ artist.artist_Genre }}</td>
+                <td class="text-right border-right border-dark">{{ artist.artist_Show_Count }}</td>
+                <td class="text-right">0</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p>You don't have any artists registered currently.</p>
+    <p><a href="{% url 'add-artist' %}">Click here</a> to add one!</p>
+    {% endif %}
+
 </div>
+
 
 
 {% endblock content %}
