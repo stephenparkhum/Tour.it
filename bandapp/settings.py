@@ -31,9 +31,13 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'tours.apps.ToursConfig',
+    'shows.apps.ShowsConfig',
     'users.apps.UsersConfig',
-    'crispy_forms',
     'artists.apps.ArtistsConfig',
+    'crispy_forms',
+    'dal',
+    'dal_select2',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class Genres(models.Model):
     BLACK_METAL = 'Black Metal'
     DEATH_METAL = 'Death Metal'
@@ -15,5 +16,3 @@ class Genres(models.Model):
         (ELECTRONIC, 'Electronic'),
         (SINGER_SONGWRITER, 'Singer-Songwriter')
     ]
-
-

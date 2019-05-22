@@ -20,14 +20,14 @@ def index(request):
 
 
 def artist_page(request):
-    artist_list = Artists.objects.all()
+    full_artist_list = Artists.objects.filter(owner_ID=request.user.id)
     context = {'artist_list': artist_list}
     return render(request, 'artists/index.html', context)
 
 
 def shows_page(request):
-    artist_list = Artists.objects.all()
-    context = {'artist_list': artist_list}
+    full_artist_list = Artists.objects.filter(owner_ID=request.user.id)
+    context = {'artist_list': full_artist_list}
     return render(request, 'artists/shows.html', context)
 
 
@@ -38,8 +38,8 @@ def add_show(request):
 
 
 def tours_page(request):
-    artist_list = Artists.objects.all()
-    context = {'artist_list': artist_list}
+    full_artist_list = Artists.objects.filter(owner_ID=request.user.id)
+    context = {'artist_list': full_artist_list}
     return render(request, 'artists/tours.html', context)
 
 
